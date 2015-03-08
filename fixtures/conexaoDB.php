@@ -15,8 +15,6 @@ function conexaoDB()
         $user = (isset($config['db']['user'])) ? $config['db']['user'] : null;
         $password = (isset($config['db']['password'])) ? $config['db']['password'] : null;
 
-        //echo "HOST: ".$host." - DBNAME: ".$dbname." - USER: ".$user." - PASS: ".$password."<br>";
-
         return new \PDO("mysql:host={$host};dbname={$dbname}", $user, $password);
 
     }catch (\PDOException $e){

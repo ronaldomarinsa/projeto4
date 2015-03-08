@@ -1,7 +1,12 @@
 <?php
 
 $uri = uri_atual();
-$rota = $uri[1];
+
+if (empty($uri)){
+	$rota = 'home';
+}else{
+	$rota = $uri;
+}
 
 $sql = "select rota, titulo, conteudo from paginas where rota = '{$rota}'";
 
@@ -12,3 +17,4 @@ $conteudo = $pagina['conteudo'];
 
 echo $conteudo;
 
+?>

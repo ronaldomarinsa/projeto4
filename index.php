@@ -1,11 +1,12 @@
 <?php
 ini_set('display_errors', true);
 error_reporting(E_ALL | E_STRICT);
+
+require_once('functions.php'); 
+
+require_once('header.ini.php'); 
+
 ?>
-
-<?php require_once 'functions.php'; ?>
-
-<?php require_once('header.ini.php'); ?>
 
     <div>
         <?php
@@ -14,6 +15,5 @@ error_reporting(E_ALL | E_STRICT);
             roteamento($uri);
         ?>
     </div>
-
 
 <?php require_once('footer.php');?>

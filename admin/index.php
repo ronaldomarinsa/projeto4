@@ -9,11 +9,15 @@ error_reporting(E_ALL | E_STRICT);
 
     <div>
         <?php
-        $uri = uri_atual();
+        $uri = uri_admin();
+
+        //var_dump($uri); die;
 
         //echo $uri[1];
 
         rotasAdm($uri);
+        //rotasAdm('admin/login');
+
         ?>
     </div>
 

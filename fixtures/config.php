@@ -4,9 +4,9 @@
 
 return array(
     'db' => array(
-        'host' => 'localhost',
-        'dbname' => 'projeto3',
-        'user' => 'root',
-        'password' => '00fb00',
+        'host' 		=> 'localhost',
+        'dbname' 	=> 'projeto4',
+        'user' 		=> 'root',
+        'password' 	=> '',
     )
 );

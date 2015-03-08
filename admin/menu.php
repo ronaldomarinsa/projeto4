@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="/admin/">Administração</a>
+            <a class="navbar-brand" href="login">Administração</a>
         </div>
         <div class="collapse navbar-collapse pull-right">
             <ul class="nav navbar-nav">

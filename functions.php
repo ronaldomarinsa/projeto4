@@ -19,22 +19,40 @@ function query($sql, $unique = false){
 
 function uri_atual(){
     $uri  = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-    $rota = explode('/',$uri['path'],2);
-
-    return $rota;
+    //$rota = explode('/',$uri['path'],2);
+    $rota = explode('/',$uri['path']);
+   
+    return $rota[2];  
 }
 
+function uri_admin(){
+    $uri  = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+    //$rota = explode('/',$uri['path'],2);
+    $rota = explode('/',$uri['path']);
+   
+    return $rota[2] .'/'. $rota[3] ;  
+}
+
+
 function roteamento($param){
+    
     try{
-        $minhasRotas = array("contato","empresa","home","servicos","busca", "produtos");
-        if(in_array($param[1], $minhasRotas)){
-            require_once($param[1].'.php');
-        } elseif ($param[1] == ""){
+        $minhasRotas = array("index","contato","empresa","home","servicos","busca", "produtos");
+        //if(in_array($param[1], $minhasRotas)){
+        if(in_array($param, $minhasRotas)){
+            //require_once($param[1].'.php');
+            require_once($param .'.php');
+        
+        //} elseif ($param[1] == ""){
+        } elseif ($param == ""){
             require_once('home.php');
+        
         } else {
             header("HTTP/1.0 404 Not Found");
             require_once('404.php');
+            
         }
+
     } catch (\PDOException $e){
         die(print_r($e->getMessage()));
     }
@@ -42,15 +60,19 @@ function roteamento($param){
 
 function rotasAdm($param){
     try{
-        $minhasRotas = array("admin/home", "admin/login", "admin/editar", "admin/logout");
-        if(in_array($param[1], $minhasRotas)){
-            require_once($param[1].'.php');
-        } elseif ($param[1] == "admin/"){
+        $minhasRotas = array("admin/index", "admin/home", "admin/login", "admin/editar", "admin/logout");
+        
+        if(in_array($param, $minhasRotas)){
+            require_once($param.'.php');
+
+        } elseif ($param == "admin/"){
             require_once('home.php');
+        
         } else {
             header("HTTP/1.0 404 Not Found");
             require_once('404.php');
         }
+
     } catch (\PDOException $e){
         die(print_r($e->getMessage()));
     }
@@ -103,6 +125,7 @@ function buscaConteudo($id){
     if ($resultado > 0){
         $conteudo = $stmt->fetch(\PDO::FETCH_ASSOC);
         return $conteudo['conteudo'];
+
     } else {
         return "Conteudo Indisponivel!";
     }
@@ -120,6 +143,7 @@ function salvarAlteracao($id, $conteudo){
 
     if ($stmt->execute()){
         return true;
+
     } else {
         return false;
     }

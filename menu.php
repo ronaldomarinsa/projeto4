@@ -8,8 +8,9 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="/">Home</a>
+            <a class="navbar-brand" href="home">Home</a>
         </div>
+        
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="empresa">Empresa</a></li>
@@ -22,9 +23,11 @@
                     <input type="text" class="form-control" placeholder="Pesquisar..." name="busca" id="busca">
                 </div>
                 <button type="submit" class="btn btn-default">Pesquisar!</button>
-            </form>
-        </div><!--/.nav-collapse -->
+                <a href="admin/login" class="btn btn-large btn-warning">Acesso Área Administrativa</a>
 
+            </form>
+
+        </div><!--/.nav-collapse -->
 
     </div>
 </header>
