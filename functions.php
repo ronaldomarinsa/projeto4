@@ -21,16 +21,23 @@ function uri_atual(){
     $uri  = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
     //$rota = explode('/',$uri['path'],2);
     $rota = explode('/',$uri['path']);
-   
-    return $rota[2];  
+
+    $tot_array = (count($rota))-1;
+    
+    //return $rota[2];  
+    return $rota[$tot_array];  
 }
 
 function uri_admin(){
     $uri  = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
     //$rota = explode('/',$uri['path'],2);
     $rota = explode('/',$uri['path']);
-   
-    return $rota[2] .'/'. $rota[3] ;  
+    
+    $tot_array = (count($rota)); 
+    
+    //return $rota[2] .'/'. $rota[3] ;  
+    return $rota[$tot_array - 2] .'/'. $rota[$tot_array - 1] ;  
+
 }
 
 

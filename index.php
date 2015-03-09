@@ -11,7 +11,7 @@ require_once('header.ini.php');
     <div>
         <?php
             $uri = uri_atual();
-
+            
             roteamento($uri);
         ?>
     </div>
